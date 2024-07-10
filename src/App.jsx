@@ -1,27 +1,17 @@
-import { useState } from 'react'
-import './App.css'
+import React from 'react';
+import Gioco from './components/Gioco/Gioco'; 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <header className="App-header">
+        <h1>Memory Game</h1>
+      </header>
+      <main>
+        <Gioco />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;

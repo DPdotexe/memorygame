@@ -1,17 +1,18 @@
-import React from 'react';
-import Carta from '../Card/Carta';
+import React, { useState } from 'react';
+import Carta from './Carta'; 
 import './Tabellone.css';
 
-const Tabellone = ({ carte, onCardClick }) => {
+const Tabellone = ({ carte, handleCardClick }) => {
+  //  riceve due props: carte e handleCardClick
   return (
     <div className="tabellone">
-      {carte.map((carta, index) => (
-        <Carta 
-          key={index} 
-          carta={carta} 
-          onClick={() => onCardClick(index)}
+      {carte.map((carta) => (
+        <Carta
+          key={carta.id}
+          id={carta.id}
+          colore={carta.colore}
           isFlipped={carta.isFlipped}
-          isMatched={carta.isMatched}
+          onClick={() => handleCardClick(carta.id)}
         />
       ))}
     </div>

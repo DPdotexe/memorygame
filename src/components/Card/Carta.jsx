@@ -1,16 +1,20 @@
 import React from 'react';
 import './Carta.css';
 
-const Carta = ({ carta, onClick, isFlipped, isMatched }) => {
+const Carta = ({ colore, onClick, isFlipped }) => {
+  // clickk carta non girata
+  const handleClick = () => {
+    if (!isFlipped) {
+      onClick();
+    }
+  };
+
   return (
-    <div className={`carta ${isFlipped || isMatched ? 'girata' : ''}`} onClick={onClick}>
-      <div className="fronte-carta">
-        {carta.contenuto}
-      </div>
-      <div className="retro-carta">
-        ?
-      </div>
-    </div>
+    <div
+      className={`carta ${isFlipped ? 'flipped' : ''}`}
+      style={{ backgroundColor: isFlipped ? colore : 'gray' }}
+      onClick={handleClick}
+    ></div>
   );
 };
 
